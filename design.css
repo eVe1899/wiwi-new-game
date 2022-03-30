@@ -4,6 +4,12 @@ h1{
     border: white;
     border-radius: 10px;
 }
+p{
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    border: white;
+    border-radius: 10px;
+}
 svg{
     margin-top: 100 px;
 }

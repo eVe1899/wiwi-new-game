@@ -21,8 +21,8 @@
         <img src="" alt="">
     </div>
     <script>
-        const song = new Audio('') 
-        const spaceBarAudio = new Audio('')
+        const song = new Audio('Y2Mate.is - A Dance of Fire and Ice Rush E Custom Level-sCoD4SFYEPs-160k-1648193127676.mp3') 
+        const spaceBarAudio = new Audio('hitsound.wav')
 
         let lifes = 3;
         const lifesCountEL = document.querySelector('.life-count')
@@ -42,6 +42,8 @@
             bar.style.left = barLeft  + "%"
         },50)
 
+        const markerPositions = [75,15,60,30,90,10,65]
+        let step = -1
         window.onkeydown = (e) => {
             // console.log(e.key)
             
@@ -50,6 +52,9 @@
                     barSpeed = 1
                     song.play()
                 }else{
+
+                    step++
+                    markerToHit.style.left = markerPositions[step] + "%"
                     if (elementsOverlap(bar, markerToHit)){
                         if (markerToHitClass === '.marker-right'){
                             markerToHitClass ='.marker-left'
@@ -80,19 +85,12 @@
                              location.reload()
                         }
                     }
-                    // if the bar is inside of a marker
-                        // change direction 
-                        // give him a point
-                            // if he reaches enough point you win
-                    //else
-                        // remove a life
+                    
                     barDirection = barDirection * -1
                 }
 
             }
         }
-
-
 
         function elementsOverlap(el1, el2) {
             const domRect1 = el1.getBoundingClientRect();
@@ -105,6 +103,8 @@
                 domRect1.left > domRect2.right
             );
         }
+
+
 
     </script>
 </body>

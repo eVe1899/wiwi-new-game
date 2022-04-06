@@ -9,6 +9,7 @@
     width: 3vw;
     min-height: 3vw;
     position: absolute;
+    transition: all .5s linear;
     top: 0;
 }
 

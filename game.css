@@ -1,0 +1,30 @@
+.bar-container{
+    background-color: var(--bs-green);
+    min-height: 3vw;
+    position: relative;
+}
+.marker{
+    opacity: .4;
+    background-color: var(--bs-yellow);
+    width: 3vw;
+    min-height: 3vw;
+    position: absolute;
+    top: 0;
+}
+
+.marker-left{
+    left: 20%;
+}
+.marker-right{
+    left: 80%;
+}
+
+.bar-item{
+    width: 10px;
+    min-height: 3vw;
+    background-color: var(--bs-red);
+    position: absolute;
+    top: 0;
+    left: 20%;
+    transition: all .05s linear;
+}

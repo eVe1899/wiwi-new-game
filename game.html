@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
+   
     <div class="lives">
         lifes: <div class="life-count">3</div>
     </div>
     <div class="bar-container">
         <div class="marker marker-left"></div>
         <div class="bar-item"></div>
-        <div class="marker marker-right"></div>
+        <div class="marker marker-right active"></div>
     </div>
 
     <div class="img">
@@ -40,38 +41,40 @@
         let interval = setInterval(() => {
             barLeft = barLeft+(barSpeed * barDirection )
             bar.style.left = barLeft  + "%"
-        },50)
+        },2)
 
-        const markerPositions = [75,15,60,30,90,10,65]
+        const markerPositions = [13,75,15,60,30,90,10,65]
         let step = -1
         window.onkeydown = (e) => {
             // console.log(e.key)
-            
+            bar.classList.add("hitted");
+            setTimeout(() =>{
+                bar.classList.remove("hitted");
+            },300)
             if (e.key === " "){
                 if (barSpeed === 0){
-                    barSpeed = 1
+                    barSpeed = .2
                     song.play()
                 }else{
-
+                    
                     step++
-                    markerToHit.style.left = markerPositions[step] + "%"
+                    // if it is on the marker
                     if (elementsOverlap(bar, markerToHit)){
-                        if (markerToHitClass === '.marker-right'){
-                            markerToHitClass ='.marker-left'
-                        }else{
-                            markerToHitClass = '.marker-right'
-                        }
-                        markerToHit = document.querySelector(markerToHitClass)
                         points++
+
+                        // Check if you won
                         if (neededPointsToWin == points){
                             alert('You won')
                         }
+                        // audio
                         spaceBarAudio.play()
                         setTimeout( () => {
                             spaceBarAudio.pause();
                             spaceBarAudio.currentTime = 0;
                         },2000)
+
                     }else{
+                        // if he miss
                         lifes--
                         lifesCountEL.innerHTML = lifes
 
@@ -85,7 +88,19 @@
                              location.reload()
                         }
                     }
+                    // swap target for the next step
+                    if (markerToHitClass === '.marker-right'){
+                        markerToHitClass ='.marker-left'
+                    }else{
+                        markerToHitClass = '.marker-right'
+                    }
+                    markerToHit.classList.remove('active')
+                    markerToHit = document.querySelector(markerToHitClass)
+                    markerToHit.classList.add('active')
                     
+                    // change next marker position
+                    markerToHit.style.left = markerPositions[step] + "%"
+
                     barDirection = barDirection * -1
                 }
 
@@ -103,8 +118,6 @@
                 domRect1.left > domRect2.right
             );
         }
-
-
 
     </script>
 </body>

@@ -1,5 +1,7 @@
 .bar-container{
-    background-color: var(--bs-green);
+    background-color: var(--bs-white);
+    border-color: white;
+    stroke: white 1px;
     min-height: 3vw;
     position: relative;
 }
@@ -9,12 +11,18 @@
     width: 3vw;
     min-height: 3vw;
     position: absolute;
-    transition: all .5s linear;
+    transition: all .2s linear;
     top: 0;
 }
 
+.hitted{
+    box-shadow: 0 0 10px red;
+}
 .marker-left{
     left: 20%;
+}
+.active{
+    background-color: var(--bs-purple);
 }
 .marker-right{
     left: 80%;
@@ -27,5 +35,14 @@
     position: absolute;
     top: 0;
     left: 20%;
-    transition: all .05s linear;
+    transition: all 2ms linear;
+}
+
+body{
+    background-color: black;
+}
+
+
+.lives{
+    color: blanchedalmond;
 }

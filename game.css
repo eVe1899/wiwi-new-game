@@ -1,15 +1,14 @@
 .bar-container{
-    background-color: var(--bs-white);
-    border-color: white;
-    stroke: white 1px;
+     border: 1px solid white ; 
+    box-shadow: 0 0 540px -5px rgba(255,255,255,.6);
     min-height: 3vw;
     position: relative;
 }
 .marker{
-    opacity: .4;
-    background-color: var(--bs-yellow);
+    opacity: 0.5;
+    background-color: var(--bs-yellow-200);
     width: 3vw;
-    min-height: 3vw;
+    min-height: 2.8vw;
     position: absolute;
     transition: all .2s linear;
     top: 0;
@@ -30,8 +29,8 @@
 
 .bar-item{
     width: 10px;
-    min-height: 3vw;
-    background-color: var(--bs-red);
+    min-height: 2.8vw;
+    background-color: var(--bs-white);
     position: absolute;
     top: 0;
     left: 20%;
@@ -44,5 +43,8 @@ body{
 
 
 .lives{
-    color: blanchedalmond;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    border: white;
+    border-radius: 10px;
 }
